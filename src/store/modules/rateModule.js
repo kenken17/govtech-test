@@ -13,7 +13,7 @@ const rateModule = {
     },
     actions: {
         getMonthlyRates({ commit }, payload) {
-            const dataStr = `between[end_of_month]=${payload.startDateStr},${payload.endDateStr}&fields=end_of_month,${payload.fields.join(',')}`;
+            const dataStr = `between[end_of_month]=${payload.startDateStr},${payload.endDateStr}&fields=end_of_month,${payload.selections.join(',')}`;
 
             return rateService
                 .getMonthlyRates(dataStr)
