@@ -13,8 +13,7 @@
         "register-service-worker": "^1.0.0",
         "vue": "^2.5.17",
         "vue-router": "^3.0.1",
-        "vuex": "^3.0.1",
-        "vuex-persist": "1.7.1"
+        "vuex": "^3.0.1"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^3.0.4",
@@ -40,13 +39,25 @@
             "@vue/airbnb"
         ],
         "rules": {
-            "indent": [2, 4, {
-                "SwitchCase": 1
-            }],
-            "comma-dangle": [2, "never"],
-            "max-len": [1, 160, 2, {
-                "ignoreComments": true
-            }],
+            "indent": [
+                2,
+                4,
+                {
+                    "SwitchCase": 1
+                }
+            ],
+            "comma-dangle": [
+                2,
+                "never"
+            ],
+            "max-len": [
+                1,
+                160,
+                2,
+                {
+                    "ignoreComments": true
+                }
+            ],
             "no-param-reassign": 0,
             "no-lonely-if": 0
         },
