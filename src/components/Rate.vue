@@ -26,11 +26,13 @@
             </label>
             <button type="submit">Submit</button>
         </form>
+
+        <div>{{ratesResult}}</div>
     </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import commonMixin from '@/mixins/commonMixin';
 
 function onSubmitData() {
@@ -49,6 +51,11 @@ function onSubmitData() {
 
 export default {
     name: 'Rate',
+    computed: {
+        ...mapState('rateModule', [
+            'ratesResult'
+        ])
+    },
     data() {
         return {
             startDate: null,
