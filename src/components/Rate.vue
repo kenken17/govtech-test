@@ -1,26 +1,41 @@
 <template>
     <div class="rate">
-        Rate component.
+        <form @submit.prevent="onSubmitData">
+            <input type="text" v-model="startDate" placeholder="e.g. Jan-2018" />
+            <input type="text" v-model="endDate" placeholder="e.g. Jun-2018" />
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import commonMixin from '@/mixins/commonMixin';
+
+function onSubmitData() {
+    const startDateStr = this.getDateStr(this.startDate);
+    const endDateStr = this.getDateStr(this.endDate);
+
+    this
+        .getMonthlyRates(`between[end_of_month]=${startDateStr},${endDateStr}`)
+        .then(() => {
+        });
+}
 
 export default {
     name: 'Rate',
-    props: {},
+    data() {
+        return {
+            startDate: null,
+            endDate: null
+        };
+    },
+    mixins: [commonMixin],
     methods: {
         ...mapActions('rateModule', [
             'getMonthlyRates'
-        ])
-    },
-    created() {
-        this
-            .getMonthlyRates('resource_id=5f2b18a8-0883-4769-a635-879c63d3caac&limit=5')
-            .then((data) => {
-                console.log('>>>', data);
-            });
+        ]),
+        onSubmitData
     }
 };
 </script>
