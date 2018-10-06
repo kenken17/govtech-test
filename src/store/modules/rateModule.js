@@ -4,17 +4,19 @@ import httpErrorHelper from '@/helpers/httpErrorHelper';
 const rateModule = {
     namespaced: true,
     state: {
-        data: null
+        ratesResult: null
     },
     mutations: {
         setData(state, data) {
-            state.data = data;
+            state.ratesResult = data;
         }
     },
     actions: {
         getMonthlyRates({ commit }, payload) {
+            const dataStr = `between[end_of_month]=${payload.startDateStr},${payload.endDateStr}&fields=end_of_month,${payload.fields.join(',')}`;
+
             return rateService
-                .getMonthlyRates(payload)
+                .getMonthlyRates(dataStr)
                 .then((res) => {
                     if (!res.data.result) return httpErrorHelper.handleNoData();
 

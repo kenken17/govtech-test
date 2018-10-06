@@ -3,6 +3,27 @@
         <form @submit.prevent="onSubmitData">
             <input type="text" v-model="startDate" placeholder="e.g. Jan-2018" />
             <input type="text" v-model="endDate" placeholder="e.g. Jun-2018" />
+            <label>
+                <input type="checkbox" v-model="fields" value="banks_fixed_deposits_3m" /> Banks Fixed Deposits 3 Months
+            </label>
+            <label>
+                <input type="checkbox" v-model="fields" value="banks_fixed_deposits_6m" /> Banks Fixed Deposits 6 months
+            </label>
+            <label>
+                <input type="checkbox" v-model="fields" value="banks_fixed_deposits_12m" /> Banks Fixed Deposits 12 months
+            </label>
+            <label>
+                <input type="checkbox" v-model="fields" value="banks_savings_deposits" /> Banks Saving Deposits
+            </label>
+            <label>
+                <input type="checkbox" v-model="fields" value="fc_fixed_deposits_3m" /> Finance Companies Fixed Deposits 3 Months
+            </label>
+            <label>
+                <input type="checkbox" v-model="fields" value="fc_fixed_deposits_6m" /> Finance Companies Fixed Deposits 6 Months
+            </label>
+            <label>
+                <input type="checkbox" v-model="fields" value="fc_fixed_deposits_12m" /> Finance Companies Fixed Deposits 12 Months
+            </label>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -17,7 +38,11 @@ function onSubmitData() {
     const endDateStr = this.getDateStr(this.endDate);
 
     this
-        .getMonthlyRates(`between[end_of_month]=${startDateStr},${endDateStr}`)
+        .getMonthlyRates({
+            startDateStr,
+            endDateStr,
+            fields: this.fields
+        })
         .then(() => {
         });
 }
@@ -27,7 +52,8 @@ export default {
     data() {
         return {
             startDate: null,
-            endDate: null
+            endDate: null,
+            fields: []
         };
     },
     mixins: [commonMixin],
