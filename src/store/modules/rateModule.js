@@ -4,7 +4,18 @@ import httpErrorHelper from '@/helpers/httpErrorHelper';
 const rateModule = {
     namespaced: true,
     state: {
-        ratesResult: null
+        ratesResult: null,
+        selected: []
+    },
+    getters: {
+        ratesRecords: (state) => {
+            if (state.ratesResult && state.ratesResult.records.length) {
+                return state.ratesResult.records;
+            }
+
+            return [];
+        },
+        selected: state => state.selected
     },
     mutations: {
         clearRatesResult(state) {
@@ -12,6 +23,9 @@ const rateModule = {
         },
         setRatesResult(state, data) {
             state.ratesResult = data;
+        },
+        setSelected(state, data) {
+            state.selected = data;
         }
     },
     actions: {
@@ -26,6 +40,7 @@ const rateModule = {
                 .then((res) => {
                     if (!res.data.result) return httpErrorHelper.handleNoData();
 
+                    commit('setSelected', payload.selections);
                     commit('setRatesResult', res.data.result);
 
                     return res.data.result;
