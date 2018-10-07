@@ -3,6 +3,8 @@
         <RateForm />
         <br />
         <RateTable />
+        <br />
+        <RateChart />
     </div>
 </template>
 
@@ -10,12 +12,14 @@
 // @ is an alias to /src
 import RateForm from '@/components/RateForm.vue';
 import RateTable from '@/components/RateTable.vue';
+import RateChart from '@/components/RateChart';
 
 export default {
     name: 'Rate',
     components: {
         RateForm,
-        RateTable
+        RateTable,
+        RateChart
     }
 };
 </script>
