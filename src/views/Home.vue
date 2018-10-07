@@ -1,6 +1,6 @@
 <template>
-    <div class="home">
-        <Rate/>
+    <div class="home md-layout md-alignment-top-center">
+        <div class="md-layout-item md-size-60 md-medium-size-50 md-small-size-100"><Rate /></div>
     </div>
 </template>
 
@@ -15,3 +15,6 @@ export default {
     }
 };
 </script>
+
+<style scoped lang="scss">
+</style>

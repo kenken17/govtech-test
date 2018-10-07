@@ -7,11 +7,17 @@ const rateModule = {
         ratesResult: null
     },
     mutations: {
-        setData(state, data) {
+        clearRatesResult(state) {
+            state.ratesResult = null;
+        },
+        setRatesResult(state, data) {
             state.ratesResult = data;
         }
     },
     actions: {
+        clearRatesResult({ commit }) {
+            commit('clearRatesResult');
+        },
         getMonthlyRates({ commit }, payload) {
             const dataStr = `between[end_of_month]=${payload.startDateStr},${payload.endDateStr}&fields=end_of_month,${payload.selections.join(',')}`;
 
@@ -20,7 +26,7 @@ const rateModule = {
                 .then((res) => {
                     if (!res.data.result) return httpErrorHelper.handleNoData();
 
-                    commit('setData', res.data.result);
+                    commit('setRatesResult', res.data.result);
 
                     return res.data.result;
                 })
