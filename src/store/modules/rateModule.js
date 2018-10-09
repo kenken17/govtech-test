@@ -41,7 +41,7 @@ const rateModule = {
                 selections.push(`fc_${item}`);
             });
 
-            const dataStr = `between[end_of_month]=${payload.startDateStr},${payload.endDateStr}&fields=end_of_month,${selections.join(',')}`;
+            const dataStr = `between[end_of_month]=${payload.startDateStr},${payload.endDateStr}&fields=end_of_month,${selections.join(',')}&limit=1000`;
 
             return rateService
                 .getMonthlyRates(dataStr)
