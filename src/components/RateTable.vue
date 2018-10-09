@@ -9,12 +9,12 @@
             <md-table-row slot="md-table-row" slot-scope="{item}">
                 <md-table-cell md-label="Period">{{item.end_of_month | dateFormat}}</md-table-cell>
                 <md-table-cell md-label="Banks FD 3 mos." v-if="selected.indexOf('banks_fixed_deposits_3m') > -1">{{item.banks_fixed_deposits_3m || '-'}}</md-table-cell>
-                <md-table-cell md-label="Banks FD 6 mos." v-if="selected.indexOf('banks_fixed_deposits_6m') > -1">{{item.banks_fixed_deposits_6m || '-'}}</md-table-cell>
-                <md-table-cell md-label="Banks FD 12 mos." v-if="selected.indexOf('banks_fixed_deposits_12m') > -1">{{item.banks_fixed_deposits_12m || '-'}}</md-table-cell>
-                <md-table-cell md-label="Banks SD" v-if="selected.indexOf('banks_savings_deposits') > -1">{{item.banks_savings_deposits || '-'}}</md-table-cell>
                 <md-table-cell md-label="Finance Companies FD 3 mos." v-if="selected.indexOf('fc_fixed_deposits_3m') > -1">{{item.fc_fixed_deposits_3m || '-'}}</md-table-cell>
+                <md-table-cell md-label="Banks FD 6 mos." v-if="selected.indexOf('banks_fixed_deposits_6m') > -1">{{item.banks_fixed_deposits_6m || '-'}}</md-table-cell>
                 <md-table-cell md-label="Finance Companies FD 6 mos." v-if="selected.indexOf('fc_fixed_deposits_6m') > -1">{{item.fc_fixed_deposits_6m || '-'}}</md-table-cell>
+                <md-table-cell md-label="Banks FD 12 mos." v-if="selected.indexOf('banks_fixed_deposits_12m') > -1">{{item.banks_fixed_deposits_12m || '-'}}</md-table-cell>
                 <md-table-cell md-label="Finance Companies FD 12 mos." v-if="selected.indexOf('fc_fixed_deposits_12m') > -1">{{item.fc_fixed_deposits_12m || '-'}}</md-table-cell>
+                <md-table-cell md-label="Banks SD" v-if="selected.indexOf('banks_savings_deposits') > -1">{{item.banks_savings_deposits || '-'}}</md-table-cell>
                 <md-table-cell md-label="Finance Companies SD" v-if="selected.indexOf('fc_savings_deposits') > -1">{{item.fc_savings_deposits || '-'}}</md-table-cell>
             </md-table-row>
         </md-table>

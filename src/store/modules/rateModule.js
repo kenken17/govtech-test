@@ -33,14 +33,22 @@ const rateModule = {
             commit('clearRatesResult');
         },
         getMonthlyRates({ commit }, payload) {
-            const dataStr = `between[end_of_month]=${payload.startDateStr},${payload.endDateStr}&fields=end_of_month,${payload.selections.join(',')}`;
+            const selections = [];
+
+            // Get both the banks and fc
+            payload.selections.forEach((item) => {
+                selections.push(`banks_${item}`);
+                selections.push(`fc_${item}`);
+            });
+
+            const dataStr = `between[end_of_month]=${payload.startDateStr},${payload.endDateStr}&fields=end_of_month,${selections.join(',')}`;
 
             return rateService
                 .getMonthlyRates(dataStr)
                 .then((res) => {
                     if (!res.data.result) return httpErrorHelper.handleNoData();
 
-                    commit('setSelected', payload.selections);
+                    commit('setSelected', selections);
                     commit('setRatesResult', res.data.result);
 
                     return res.data.result;

@@ -26,14 +26,10 @@
                     </div>
                 </div>
 
-                <md-checkbox v-model="formData.selections" name="selections" value="banks_fixed_deposits_3m" :disabled="sending" v-validate="'atLeastOne'">Banks Fixed Deposits 3 Months</md-checkbox>
-                <md-checkbox v-model="formData.selections" name="selections" value="banks_fixed_deposits_6m" :disabled="sending">Banks Fixed Deposits 6 Months</md-checkbox>
-                <md-checkbox v-model="formData.selections" name="selections" value="banks_fixed_deposits_12m" :disabled="sending">Banks Fixed Deposits 12 Months</md-checkbox>
-                <md-checkbox v-model="formData.selections" name="selections" value="banks_savings_deposits" :disabled="sending">Banks Saving Deposits</md-checkbox>
-                <md-checkbox v-model="formData.selections" name="selections" value="fc_fixed_deposits_3m" :disabled="sending">Finance Companies Fixed Deposits 3 Months</md-checkbox>
-                <md-checkbox v-model="formData.selections" name="selections" value="fc_fixed_deposits_6m" :disabled="sending">Finance Companies Fixed Deposits 6 Months</md-checkbox>
-                <md-checkbox v-model="formData.selections" name="selections" value="fc_fixed_deposits_12m" :disabled="sending">Finance Companies Fixed Deposits 12 Months</md-checkbox>
-                <md-checkbox v-model="formData.selections" name="selections" value="fc_savings_deposits" :disabled="sending">Finance Companies Savings Deposits</md-checkbox>
+                <md-checkbox v-model="formData.selections" name="selections" value="fixed_deposits_3m" :disabled="sending" v-validate="'atLeastOne'">Fixed Deposits 3 Months</md-checkbox>
+                <md-checkbox v-model="formData.selections" name="selections" value="fixed_deposits_6m" :disabled="sending">Fixed Deposits 6 Months</md-checkbox>
+                <md-checkbox v-model="formData.selections" name="selections" value="fixed_deposits_12m" :disabled="sending">Fixed Deposits 12 Months</md-checkbox>
+                <md-checkbox v-model="formData.selections" name="selections" value="savings_deposits" :disabled="sending">Saving Deposits</md-checkbox>
                 <span class="warn md-caption" v-if="errors.has('selections')">{{ errors.first('selections') }}</span>
             </md-card-content>
 

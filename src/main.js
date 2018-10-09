@@ -13,7 +13,9 @@ import './registerServiceWorker';
 Vue.config.productionTip = false;
 
 Vue.use(VueMaterial);
-Vue.use(VeeValidate);
+Vue.use(VeeValidate, {
+    events: ''
+});
 Vue.use(VueCharts);
 
 new Vue({
