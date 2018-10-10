@@ -27,10 +27,10 @@ import { mapGetters } from 'vuex';
 export default {
     name: 'RateTable',
     computed: {
-        ...mapGetters('rateModule', [
-            'ratesRecords',
-            'selected'
-        ])
+        ...mapGetters('rateModule', {
+            ratesRecords: 'getRatesRecords',
+            selected: 'getSelected'
+        })
     },
     filters: {
         dateFormat(value) {

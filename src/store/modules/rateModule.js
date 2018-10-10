@@ -8,14 +8,14 @@ const rateModule = {
         selected: []
     },
     getters: {
-        ratesRecords: (state) => {
-            if (state.ratesResult && state.ratesResult.records.length) {
+        getRatesRecords: (state) => {
+            if (state && state.ratesResult && state.ratesResult.records && state.ratesResult.records.length) {
                 return state.ratesResult.records;
             }
 
             return [];
         },
-        selected: state => state.selected
+        getSelected: state => state.selected
     },
     mutations: {
         clearRatesResult(state) {

@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 import commonMixin from '@/mixins/commonMixin';
 
 function onSubmitData() {
@@ -86,11 +86,6 @@ function onClearForm() {
 
 export default {
     name: 'RateForm',
-    computed: {
-        ...mapState('rateModule', [
-            'ratesResult'
-        ])
-    },
     data() {
         return {
             formData: {

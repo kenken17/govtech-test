@@ -2,14 +2,14 @@
     <div class="rate">
         <RateForm />
         <br />
-        <RateTable />
-        <br />
         <RateChart
             v-show="ratesRecords.length > 0"
             :chart-data="datacollection"
             :options="{responsive: false, maintainAspectRatio: false}"
             :width="400"
             :height="200" />
+        <br />
+        <RateTable />
     </div>
 </template>
 
@@ -33,9 +33,9 @@ export default {
         RateChart
     },
     computed: {
-        ...mapGetters('rateModule', [
-            'ratesRecords'
-        ])
+        ...mapGetters('rateModule', {
+            ratesRecords: 'getRatesRecords'
+        })
     },
     watch: {
         ratesRecords(val) {
