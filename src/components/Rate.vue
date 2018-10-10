@@ -4,7 +4,12 @@
         <br />
         <RateTable />
         <br />
-        <RateChart v-show="ratesRecords.length > 0" :chart-data="datacollection" :options="{responsive: false, maintainAspectRatio: false}" :width="400" :height="200" />
+        <RateChart
+            v-show="ratesRecords.length > 0"
+            :chart-data="datacollection"
+            :options="{responsive: false, maintainAspectRatio: false}"
+            :width="400"
+            :height="200" />
     </div>
 </template>
 
@@ -79,7 +84,7 @@ export default {
 
                 // Get the label and data
                 Object.keys(naming).forEach((name) => {
-                    if (val[0].hasOwnProperty(name)) {
+                    if (({}).hasOwnProperty.call(val[0], name)) {
                         datasets.push({
                             label: naming[name].label,
                             borderColor: naming[name].color,
