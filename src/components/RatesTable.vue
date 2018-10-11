@@ -25,7 +25,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-    name: 'RateTable',
+    name: 'RatesTable',
     computed: {
         ...mapGetters('rateModule', {
             ratesRecords: 'getRatesRecords',

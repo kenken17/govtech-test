@@ -8,6 +8,33 @@ const rateModule = {
         selected: []
     },
     getters: {
+        getRatesAverages: (state) => {
+            const averages = [{}];
+
+            if (state && state.ratesResult && state.ratesResult.records && state.ratesResult.records.length) {
+                // initiate all to 0
+                state.selected.forEach((sel) => {
+                    averages[0][sel] = 0;
+                });
+
+                state.ratesResult.records.forEach((item) => {
+                    // sum the records
+                    state.selected.forEach((sel) => {
+                        averages[0][sel] += +item[sel];
+                    });
+                });
+
+                // divided them
+                state.selected.forEach((sel) => {
+                    averages[0][sel] /= state.ratesResult.records.length;
+                    averages[0][sel] = Math.round(averages[0][sel] * 100) / 100;
+                });
+
+                return averages;
+            }
+
+            return [];
+        },
         getRatesRecords: (state) => {
             if (state && state.ratesResult && state.ratesResult.records && state.ratesResult.records.length) {
                 return state.ratesResult.records;

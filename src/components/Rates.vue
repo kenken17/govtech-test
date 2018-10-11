@@ -1,36 +1,40 @@
 <template>
     <div class="rate">
-        <RateForm />
+        <RatesForm />
         <br />
-        <RateChart
+        <RatesChart
             v-show="ratesRecords.length > 0"
             :chart-data="datacollection"
             :options="{responsive: false, maintainAspectRatio: false}"
             :width="400"
             :height="200" />
         <br />
-        <RateTable />
+        <RatesAverage />
+        <br />
+        <RatesTable />
     </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import RateForm from '@/components/RateForm.vue';
-import RateTable from '@/components/RateTable.vue';
-import RateChart from '@/components/RateChart';
+import RatesForm from '@/components/RatesForm.vue';
+import RatesTable from '@/components/RatesTable.vue';
+import RatesAverage from '@/components/RatesAverage.vue';
+import RatesChart from '@/components/RatesChart';
 import { mapGetters } from 'vuex';
 
 export default {
-    name: 'Rate',
+    name: 'Rates',
     data() {
         return {
             datacollection: null
         };
     },
     components: {
-        RateForm,
-        RateTable,
-        RateChart
+        RatesForm,
+        RatesTable,
+        RatesChart,
+        RatesAverage
     },
     computed: {
         ...mapGetters('rateModule', {

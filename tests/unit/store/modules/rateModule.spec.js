@@ -6,6 +6,42 @@ let state = {};
 
 describe('rateModule', () => {
     describe('getters', () => {
+        describe('getRatesAverages', () => {
+            it('should return empty arrray when no state result', () => {
+                state = {
+                    ratesResult: {
+                        records: []
+                    }
+                };
+
+                const expected = rateModule.getters.getRatesAverages(state);
+
+                expect(expected).toEqual([]);
+            });
+
+            it('should return the averages from ratesResult', () => {
+                state = {
+                    selected: ['item1', 'item2'],
+                    ratesResult: {
+                        records: [{
+                            item1: '0.1',
+                            item2: '0.3'
+                        }, {
+                            item1: '0.1',
+                            item2: '0.3'
+                        }]
+                    }
+                };
+
+                const expected = rateModule.getters.getRatesAverages(state);
+
+                expect(expected).toEqual([{
+                    item1: 0.1,
+                    item2: 0.3
+                }]);
+            });
+        });
+
         describe('getRatesRecords', () => {
             it('should return the records from ratesResult', () => {
                 state = {

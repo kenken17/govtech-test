@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Home from '@/views/Home.vue';
-import Rate from '@/components/Rate.vue';
+import Rates from '@/components/Rates.vue';
 
 const localVue = createLocalVue();
 const factory = (data = {}) => shallowMount(Home, {
@@ -17,10 +17,10 @@ describe('Home.vue', () => {
         expect(wrapper.exists()).toBe(true);
     });
 
-    it('should render the Rate component and visible', () => {
+    it('should render the Rates component and visible', () => {
         const wrapper = factory();
 
-        expect(wrapper.find(Rate).exists()).toBe(true);
-        expect(wrapper.find(Rate).isVisible()).toBe(true);
+        expect(wrapper.find(Rates).exists()).toBe(true);
+        expect(wrapper.find(Rates).isVisible()).toBe(true);
     });
 });

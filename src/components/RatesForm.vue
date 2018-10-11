@@ -85,7 +85,7 @@ function onClearForm() {
 }
 
 export default {
-    name: 'RateForm',
+    name: 'RatesForm',
     data() {
         return {
             formData: {
