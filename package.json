@@ -6,7 +6,7 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "test:unit": "vue-cli-service test:unit"
+        "test:unit": "vue-cli-service test:unit --watch"
     },
     "dependencies": {
         "axios": "0.18.0",
@@ -82,8 +82,6 @@
     "jest": {
         "moduleFileExtensions": [
             "js",
-            "jsx",
-            "json",
             "vue"
         ],
         "transform": {
@@ -100,6 +98,14 @@
         "testMatch": [
             "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
         ],
-        "testURL": "http://localhost/"
+        "testURL": "http://localhost/",
+        "coverageReporters": ["html", "text-summary"],
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "src/**/*.{js,vue}",
+            "!src/**/*.spec.js",
+            "!src/main.js",
+            "!**/node_modules/**"
+        ]
     }
 }

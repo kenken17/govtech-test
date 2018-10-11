@@ -31,16 +31,6 @@ export default {
             ratesRecords: 'getRatesRecords',
             selected: 'getSelected'
         })
-    },
-    filters: {
-        dateFormat(value) {
-            if (!value) return '';
-
-            const months = 'JanFebMarAprMayJunJulAugSepOctNovDec';
-            const dateToken = value.split('-');
-
-            return `${months.substr((+dateToken[1] - 1) * 3, 3)}-${dateToken[0]}`;
-        }
     }
 };
 </script>

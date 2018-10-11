@@ -46,7 +46,7 @@ const rateModule = {
             return rateService
                 .getMonthlyRates(dataStr)
                 .then((res) => {
-                    if (!res.data.result) return httpErrorHelper.handleNoData();
+                    if (!res || !res.data || !res.data.result) return httpErrorHelper.handleNoData();
 
                     commit('setSelected', selections);
                     commit('setRatesResult', res.data.result);

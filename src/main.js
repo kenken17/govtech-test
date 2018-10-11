@@ -8,6 +8,7 @@ import VueCharts from 'vue-chartjs';
 import VeeValidate from './validate';
 import App from './App.vue';
 import router from './router';
+import './filters/commonFilter';
 import './registerServiceWorker';
 
 Vue.config.productionTip = false;
