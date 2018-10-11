@@ -105,6 +105,7 @@
             "src/**/*.{js,vue}",
             "!src/**/*.spec.js",
             "!src/main.js",
+            "!src/registerServiceWorker.js",
             "!**/node_modules/**"
         ]
     }
