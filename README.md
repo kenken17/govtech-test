@@ -25,6 +25,7 @@ npm run build
 ```
 
 ### Lints and fixes files
+Increas the max-length of code to 200 for readiblity purpose.
 ```
 npm run lint
 ```
